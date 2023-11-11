@@ -255,8 +255,8 @@ function formatTime(minutes, seconds) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 /**
@@ -270,8 +270,8 @@ function reverseString(/* str */) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function orderAlphabetically(str) {
+  return str.split('').sort().join('');
 }
 
 /**
@@ -356,8 +356,10 @@ function findLongestWord(/* sentence */) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const array1 = str.split(' ');
+  const array2 = array1.map((el) => el.split(''));
+  return array2.map((el) => el.reverse().join('')).join(' ');
 }
 
 /**
@@ -371,8 +373,20 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  const alphabetLower = 'abcdefghijklmnopqrstuvwxyz';
+  const alphabetUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const result = [];
+  for (let i = 0; i < str.length; i += 1) {
+    if (alphabetLower.includes(str[i])) {
+      result.push(str[i].toUpperCase());
+    } else if (alphabetUpper.includes(str[i])) {
+      result.push(str[i].toLowerCase());
+    } else {
+      result.push(str[i]);
+    }
+  }
+  return result.join('');
 }
 
 /**
@@ -402,8 +416,8 @@ function getStringFromTemplate(firstName, lastName) {
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+function extractNameFromTemplate(value) {
+  return value.substring(7, value.length - 1);
 }
 
 /**
@@ -436,8 +450,8 @@ function unbracketTag(str) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
